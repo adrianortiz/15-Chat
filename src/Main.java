@@ -1,5 +1,5 @@
 import com.codizer.sockets.ServerSocketSingleton;
-import com.codizer.view.MenuUI;
+import com.codizer.view.MenuUISingleton;
 
 /**
  * 
@@ -13,7 +13,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		MenuUI menuUI = MenuUI.getInstance();
+		MenuUISingleton menuUI = MenuUISingleton.getInstance();
 		menuUI.setVisible(true);
 		ServerSocketSingleton socketServidor = ServerSocketSingleton.getInstance();
 	}

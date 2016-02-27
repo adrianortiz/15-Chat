@@ -2,6 +2,7 @@ package com.codizer.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -22,12 +23,15 @@ public final class ChatUISingleton extends JFrame {
     public JTextArea txtContentMsgs;
     public JLabel lbChatTitle;
     
+    private Container c = getContentPane();
+    
     /**
      * Contructo privado para ChatUISingleton
      */
     private ChatUISingleton(){
     	
         super("Chat - User");
+        super.setSize(320, 540);
         super.setLocationRelativeTo(null);
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
@@ -45,21 +49,25 @@ public final class ChatUISingleton extends JFrame {
      */
     private void controllersUI() {
     	
+    	c.setLayout(null);
+    	
     	lbChatTitle = new JLabel("Chat");
         lbChatTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		lbChatTitle.setOpaque(true);
-		lbChatTitle.setFont(new Font("Helvetica Neue", Font.PLAIN, 18));
-		add(lbChatTitle, BorderLayout.NORTH);
+		lbChatTitle.setFont(new Font("Helvetica Neue", Font.PLAIN, 16));
+		lbChatTitle.setBounds(0, 0, 320, 52);
+		c.add(lbChatTitle);
         
         txtContentMsgs = new JTextArea();
         txtContentMsgs.setEditable(false);
-        add(new JScrollPane(txtContentMsgs), BorderLayout.CENTER);
+        txtContentMsgs.setBounds(0, 52, 320, 420);
+        c.add(txtContentMsgs);
         
         txtMsg = new JTextField();
         txtMsg.setEditable(false);
-        add(txtMsg, BorderLayout.SOUTH);
+        txtMsg.setBounds(5, 477, 310, 35);
+        c.add(txtMsg);
         
-        setSize(300, 520);
         setVisible(true);
 	}
 
@@ -77,7 +85,6 @@ public final class ChatUISingleton extends JFrame {
 	 */
     public void habilitarTexto(boolean editable) {
         txtMsg.setEditable(editable);
-        txtMsg.requestFocus();
     }
     
     /**

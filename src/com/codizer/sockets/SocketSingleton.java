@@ -36,7 +36,7 @@ public final class SocketSingleton {
         	cliente = new Socket(InetAddress.getByName(session.getIp()), 11111);
     		chatUI.mostrarEstado("Buscando Servidor ...", Color.orange);
         		
-        	chatUI.mostrarEstado("Conectado a :" + cliente.getInetAddress().getHostName(), Color.green);
+        	chatUI.mostrarEstado("Conectado al servidor - " + cliente.getInetAddress().getHostName(), Color.decode("#7BED6D"));
         	chatUI.habilitarTexto(true);
         		
         	executor.execute(new ThreadReceivesCliente(cliente, chatUI));

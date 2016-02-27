@@ -42,7 +42,7 @@ public final class ServerSocketSingleton {
             while (true) {
                 try {
                     conexion = servidor.accept();
-                    servidorUI.mostrarEstado("Conectado!", Color.green);
+                    servidorUI.mostrarEstado("Servidor - " + conexion.getInetAddress() + " (Conectado)", Color.decode("#7BED6D"));
                     servidorUI.habilitarTexto(true);
 
                     executor.execute(new ThreadReceives(conexion, servidorUI));
